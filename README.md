@@ -10,10 +10,26 @@ Comandos útiles:
 
 Prueba con MongoDB Compass:
 
-!["url"](./imagenes/1-url.png)
+!["url"](./imagenes/etapa1/1-url.png)
 
-!["db"](./imagenes/2-db.png)
+!["db"](./imagenes/etapa1/2-db.png)
 
 ## Etapa2: API REST para Mongo
 
-TODO
+### Gestión de usuarios
+
+!["login"](./imagenes/etapa2/usuarios/1-login.png)
+
+!["register"](./imagenes/etapa2/usuarios/2-register.png)
+
+!["profile"](./imagenes/etapa2/usuarios/3-profile.png)
+
+!["db"](./imagenes/etapa2/usuarios/4-db.png)
+
+!["change-password"](./imagenes/etapa2/usuarios/5-change-password.png)
+
+!["forgot-password"](./imagenes/etapa2/usuarios/6-forgot-password.png)
+
+!["email"](./imagenes/etapa2/usuarios/7-email.png)
+
+!["reset-password"](./imagenes/etapa2/usuarios/8-reset-password.png)

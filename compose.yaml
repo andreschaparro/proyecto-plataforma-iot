@@ -1,0 +1,15 @@
+services:
+  mongo:
+    # Última versión compatible con Raspberry Pi 3B+ https://hub.docker.com/_/mongo/
+    image: mongo:4.4.18
+    restart: always
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+      - MONGO_INITDB_DATABASE=iot
+    volumes:
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+      - ./mongo/datadir:/data/db
+    ports:
+      - 27017:27017
+    command: ["mongod", "--auth", "--bind_ip_all"]

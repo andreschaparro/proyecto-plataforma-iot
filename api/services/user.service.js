@@ -1,8 +1,8 @@
-import { JWT_SECRET } from "../config/jwt.config.js"
 import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
-import { EMAIL_USER, EMAIL_PASS } from "../config/nodemailer.config.js"
 import nodemailer from "nodemailer"
+import { JWT_SECRET } from "../config/jwt.config.js"
+import { EMAIL_USER, EMAIL_PASS } from "../config/nodemailer.config.js"
 
 const SALT_ROUNDS = 10
 

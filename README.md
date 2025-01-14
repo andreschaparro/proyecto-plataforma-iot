@@ -33,3 +33,6 @@ Prueba con MongoDB Compass:
 !["email"](./imagenes/etapa2/usuarios/7-email.png)
 
 !["reset-password"](./imagenes/etapa2/usuarios/8-reset-password.png)
+
+### Guardar telemetrías
+

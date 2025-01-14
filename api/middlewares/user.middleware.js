@@ -1,6 +1,6 @@
+import jwt from "jsonwebtoken"
 import { JWT_SECRET } from "../config/jwt.config.js"
 import { User } from "../models/user.model.js"
-import jwt from "jsonwebtoken"
 
 // Verifica el token que viene en el header de autenticación
 export const verifyJwtFromHeader = async (req, res, next) => {

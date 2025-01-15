@@ -1,12 +1,9 @@
 import { Schema, model } from "mongoose"
 
 const dataSchema = Schema({
-    day: String,
+    day: Date,
     device: String,
-    nSamples: {
-        type: Number,
-        default: 0
-    },
+    nSamples: Number,
     first: Number,
     last: Number,
     telemetry: [{

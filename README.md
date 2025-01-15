@@ -34,8 +34,14 @@ Prueba con MongoDB Compass:
 
 !["reset-password"](./imagenes/etapa2/usuarios/8-reset-password.png)
 
-### Guardar telemetrías
+### Gestión de los datos
 
-!["telemetries"](./imagenes/etapa2/telemetrias/1-put-telemetries.png)
+!["put"](./imagenes/etapa2/data/1-put.png)
 
-!["db"](./imagenes/etapa2/telemetrias/2-db.png)
+!["db"](./imagenes/etapa2/data/2-db.png)
+
+!["device"](./imagenes/etapa2/data/3-device.png)
+
+!["device-day"](./imagenes/etapa2/data/4-device-day.png)
+
+!["device-from-to"](./imagenes/etapa2/data/5-device-from-to.png)

@@ -10,7 +10,7 @@ export const login = async (req, res) => {
             return res.status(400).json({ message: "Los campos email y password son obligatorios" })
         }
 
-        // Verifica el email utilizando REGEX
+        // Verifica email utilizando REGEX
         const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
         if (!emailPattern.test(email)) {

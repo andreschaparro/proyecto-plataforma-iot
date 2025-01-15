@@ -36,3 +36,6 @@ Prueba con MongoDB Compass:
 
 ### Guardar telemetrías
 
+!["telemetries"](./imagenes/etapa2/telemetrias/1-put-telemetries.png)
+
+!["db"](./imagenes/etapa2/telemetrias/2-db.png)

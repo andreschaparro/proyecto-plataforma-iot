@@ -1,8 +1,8 @@
 import { Data } from "../models/data.model.js"
 import { DATA_N_SAMPLES } from "../config/database.config.js"
 
-// Guarda una telemetría de un dispositivo dentro de su documento diario
-export const saveTelemetry = async (req, res) => {
+// Guarda una telemetría de un device dentro dentro de un documento diario
+export const updateTodayDeviceTelemetries = async (req, res) => {
     try {
         const { device, ts, values } = req.body
 
@@ -11,22 +11,21 @@ export const saveTelemetry = async (req, res) => {
         }
 
         if (typeof device !== "string" || device.trim() === "") {
-            return res.status(400).json({ message: "El campo device debe ser un string válido" })
+            return res.status(400).json({ message: "El campo device debe ser un string" })
         }
 
         // https://espanol.epochconverter.com/
-        if (typeof ts !== "number" || ts < 0 || isNaN(ts)) {
-            return res.status(400).json({ message: "El campo ts debe ser un número epoch válido" })
+        if (typeof ts !== "number" || !Number.isInteger(ts) || ts < 0) {
+            return res.status(400).json({ message: "El campo ts debe ser un número epoch" })
         }
 
-        if (typeof values !== "object" || values === null) {
-            return res.status(400).json({ message: "El campo ts debe ser un objeto válido" })
+        if (typeof values !== "object") {
+            return res.status(400).json({ message: "El campo values debe ser un objeto" })
         }
 
-        const tsMilliseconds = ts * 1000
-
-        const day = new Date(tsMilliseconds)
-        day.setHours(0, 0, 0, 0)
+        const today = new Date(ts * 1000)
+        today.setHours(0, 0, 0, 0)
+        const day = today.toISOString().slice(0, 10)
 
         const existingData = await Data.findOne({
             day,
@@ -34,7 +33,7 @@ export const saveTelemetry = async (req, res) => {
         })
 
         if (existingData && existingData.nSamples >= DATA_N_SAMPLES) {
-            return res.status(400).json({ message: "Se superó la cantidad de telemetrías del dispositivo que se pueden guardar hoy" })
+            return res.status(400).json({ message: "Se superó la cantidad máxima de telemetrías del device que se pueden guardar durante hoy" })
         }
 
         await Data.updateOne(
@@ -46,12 +45,12 @@ export const saveTelemetry = async (req, res) => {
             {
                 $push: {
                     telemetry: {
-                        ts: tsMilliseconds,
+                        ts: ts,
                         values
                     }
                 },
-                $min: { first: tsMilliseconds },
-                $max: { last: tsMilliseconds },
+                $min: { first: ts },
+                $max: { last: ts },
                 $inc: { nSamples: 1 }
             },
             {

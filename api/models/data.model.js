@@ -1,16 +1,16 @@
 import { Schema, model } from "mongoose"
 
 const dataSchema = Schema({
-    day: Date,
+    day: String,
     device: String,
     nSamples: {
         type: Number,
         default: 0
     },
-    first: Date,
-    last: Date,
+    first: Number,
+    last: Number,
     telemetry: [{
-        ts: Date,
+        ts: Number,
         values: Schema.Types.Mixed
     }]
 })

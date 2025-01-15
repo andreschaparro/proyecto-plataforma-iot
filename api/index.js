@@ -3,6 +3,7 @@ import { connect } from "mongoose"
 import { mongoUrl } from "./config/database.config.js"
 import { userRouter } from "./routes/user.routes.js"
 import { dataRouter } from "./routes/data.routes.js"
+import { deviceRouter } from "./routes/device.routes.js"
 
 const app = express()
 const { PORT = 3000 } = process.env
@@ -26,6 +27,7 @@ app.use(express.json())
 // Rutas
 app.use("/users", userRouter)
 app.use("/data", dataRouter)
+app.use("/devices", deviceRouter)
 
 app.use("/", (req, res) => {
     res.status(404).json({ message: "La API está funcionando" })

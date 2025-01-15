@@ -16,7 +16,7 @@ Prueba con MongoDB Compass:
 
 ## Etapa2: API REST para Mongo
 
-### Gestión de usuarios
+### Gestión de los usuarios
 
 !["login"](./imagenes/etapa2/usuarios/1-login.png)
 
@@ -45,3 +45,21 @@ Prueba con MongoDB Compass:
 !["device-day"](./imagenes/etapa2/data/4-device-day.png)
 
 !["device-from-to"](./imagenes/etapa2/data/5-device-from-to.png)
+
+📝TODO: Crear una ruta para obtener la ultima telemetría de un dispositivo.
+
+### Gestión de los dispositivos
+
+!["create"](./imagenes/etapa2/dispositivos/1-register.png)
+
+!["db"](./imagenes/etapa2/dispositivos/2-db.png)
+
+!["devices"](./imagenes/etapa2/dispositivos/3-devices.png)
+
+!["one-device"](./imagenes/etapa2/dispositivos/4-one-device.png)
+
+!["connectivity"](./imagenes/etapa2/dispositivos/5-connectivity.png)
+
+📝TODO: Proteger rutas de la etapa 3 comprobando que el dispositivo exista.
+
+📝TODO: Crear una ruta para actualizar el grupo.

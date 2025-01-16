@@ -1,17 +1,26 @@
 import { Router } from "express"
-import { getAllDevices, getOneDevice, createDevice, updateDeviceConnectivity } from "../controllers/device.controller.js"
-import { verifyJwtFromHeader, ensureAdminRole } from "../middlewares/user.middleware.js"
+import {
+    getDevices,
+    getDevice,
+    createDevice,
+    updateDeviceConnectivity,
+    updateDeviceGroup
+} from "../controllers/device.controller.js"
+import { verifyJwt, ensureAdminRole } from "../middlewares/user.middleware.js"
 
 export const deviceRouter = Router()
 
 // Ruta para que un usuario obtenga todos los dispositivos 
-deviceRouter.get("/", verifyJwtFromHeader, getAllDevices)
+deviceRouter.get("/devices", verifyJwt, getDevices)
 
 // Ruta para que un usuario autenticado obtenga un dispositivo
-deviceRouter.get("/:name", verifyJwtFromHeader, getOneDevice)
+deviceRouter.get("/devices/:name", verifyJwt, getDevice)
 
-// Ruta que un usuario administrador autenticado registre nuevos dispositivos
-deviceRouter.post("/register", verifyJwtFromHeader, ensureAdminRole, createDevice)
+// Ruta para que un usuario administrador autenticado cree nuevos dispositivos
+deviceRouter.post("/devices", verifyJwt, ensureAdminRole, createDevice)
 
-// Ruta para actualizar el estado de la conexión de un dispositivo
-deviceRouter.put("/connectivity", updateDeviceConnectivity)
+// Ruta para actualizar el estado de la conectividad de un dispositivo
+deviceRouter.put("/devices/:name/connectivity", updateDeviceConnectivity)
+
+// Ruta para actualizar el grupo al que pertenece un dispositivo
+deviceRouter.put("/devices/:name/group", updateDeviceGroup)

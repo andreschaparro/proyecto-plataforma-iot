@@ -1,23 +1,33 @@
 import { Router } from "express"
-import { login, register, profile, changePassword, forgotPassword, resetPassword } from "../controllers/user.controller.js"
-import { verifyJwtFromHeader, ensureAdminRole, verifyJwtFromBody } from "../middlewares/user.middleware.js"
+import {
+    getUserProfile,
+    authenticateUser,
+    createUser,
+    sendPasswordResetEmail,
+    changePassword,
+    resetPassword
+} from "../controllers/user.controller.js"
+import {
+    verifyJwt,
+    ensureAdminRole,
+} from "../middlewares/user.middleware.js"
 
 export const userRouter = Router()
 
-// Ruta para hacer un login
-userRouter.post("/login", login)
+// Ruta para que un usuario autenticado obtenga sus datos
+userRouter.get("/users/me", verifyJwt, getUserProfile)
+
+// Ruta para que un usuario se autentifique
+userRouter.post("/auth/login", authenticateUser)
 
 // Ruta para que un usuario administrador autenticado registre nuevos usuarios
-userRouter.post("/register", verifyJwtFromHeader, ensureAdminRole, register)
-
-// Ruta para que un usuario autenticado obtenga sus datos
-userRouter.get("/profile", verifyJwtFromHeader, profile)
-
-// Ruta para que un usuario autenticado pueda cambiar su contraseña
-userRouter.post("/change-password", verifyJwtFromHeader, changePassword)
+userRouter.post("/users", verifyJwt, ensureAdminRole, createUser)
 
 // Ruta para enviar un correo electrónico para restablecer la contraseña
-userRouter.post("/forgot-password", forgotPassword)
+userRouter.post("/auth/forgot-password", sendPasswordResetEmail)
 
-// Ruta para reestablecer la contraseña de un usuario utilizando un token JWT
-userRouter.post("/reset-password", verifyJwtFromBody, resetPassword)
+// Ruta para que un usuario autenticado pueda cambiar su contraseña
+userRouter.put("/auth/change-password", verifyJwt, changePassword)
+
+// Ruta para restablecer la contraseña de un usuario utilizando un token JWT
+userRouter.put("/auth/reset-password", verifyJwt, resetPassword)

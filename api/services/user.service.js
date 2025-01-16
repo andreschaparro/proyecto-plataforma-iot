@@ -11,7 +11,7 @@ export const comparePasswords = async (password, hashPassword) => {
     return await bcrypt.compare(password, hashPassword)
 }
 
-// Genera un token JWT para un usuario que expira en un determinado tiempo
+// Genera un JWT utilizando el _id de Mongo como payload
 export const generateToken = (_id, expiresIn) => {
     // https://jwt.io/
     return jwt.sign({ _id }, JWT_SECRET, { expiresIn })
@@ -22,9 +22,10 @@ export const hashPassword = async (password) => {
     return await bcrypt.hash(password, SALT_ROUNDS)
 }
 
-// Envía un correo electrónico donde el contenido del mismo debe estar en formato HTML
+// Envía un email en formato HTML
 export const sendMail = async (to, subject, html) => {
     try {
+        // Configuración del servidor de email
         const transporter = nodemailer.createTransport({
             host: "smtp.ethereal.email",
             port: 587,
@@ -35,6 +36,7 @@ export const sendMail = async (to, subject, html) => {
             }
         })
 
+        // Contenido del email
         const mailOptions = {
             from: "iot",
             to,
@@ -42,8 +44,10 @@ export const sendMail = async (to, subject, html) => {
             html
         }
 
+        // Envía el email
         await transporter.sendMail(mailOptions)
     } catch (error) {
-        throw new Error(`Error al enviar correo a ${to}: ${error.message}`)
+        // Este mensaje va a salir por el catch con status 500
+        throw new Error(`Error al enviar un email a ${to}: ${error.message}`)
     }
 }

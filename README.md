@@ -20,46 +20,52 @@ Prueba con MongoDB Compass:
 
 !["login"](./imagenes/etapa2/usuarios/1-login.png)
 
-!["register"](./imagenes/etapa2/usuarios/2-register.png)
+!["jwt"](./imagenes/etapa2/usuarios/2-jwt.png)
 
-!["profile"](./imagenes/etapa2/usuarios/3-profile.png)
+!["create"](./imagenes/etapa2/usuarios/3-create.png)
 
 !["db"](./imagenes/etapa2/usuarios/4-db.png)
 
-!["change-password"](./imagenes/etapa2/usuarios/5-change-password.png)
+!["me"](./imagenes/etapa2/usuarios/5-me.png)
 
-!["forgot-password"](./imagenes/etapa2/usuarios/6-forgot-password.png)
+!["change-password"](./imagenes/etapa2/usuarios/6-change-password.png)
 
-!["email"](./imagenes/etapa2/usuarios/7-email.png)
+!["forgot-password"](./imagenes/etapa2/usuarios/7-forgot-password.png)
 
-!["reset-password"](./imagenes/etapa2/usuarios/8-reset-password.png)
+!["email"](./imagenes/etapa2/usuarios/8-email.png)
+
+!["reset-password"](./imagenes/etapa2/usuarios/9-reset-password.png)
+
+📝TODO: Las últimas 3 imágenes no están actualizadas.
 
 ### Gestión de los datos
 
-!["put"](./imagenes/etapa2/data/1-put.png)
+!["req-params"](./imagenes/etapa2/data/1-req-params.png)
 
-!["db"](./imagenes/etapa2/data/2-db.png)
+!["put"](./imagenes/etapa2/data/2-put.png)
 
-!["device"](./imagenes/etapa2/data/3-device.png)
+!["db"](./imagenes/etapa2/data/3-db.png)
 
-!["device-day"](./imagenes/etapa2/data/4-device-day.png)
+!["last"](./imagenes/etapa2/data/4-last.png)
 
-!["device-from-to"](./imagenes/etapa2/data/5-device-from-to.png)
+!["all"](./imagenes/etapa2/data/5-all.png)
 
-📝TODO: Crear una ruta para obtener la ultima telemetría de un dispositivo.
+!["day"](./imagenes/etapa2/data/6-day.png)
+
+!["from-to"](./imagenes/etapa2/data/7-from-to.png)
 
 ### Gestión de los dispositivos
 
-!["create"](./imagenes/etapa2/dispositivos/1-register.png)
+!["create"](./imagenes/etapa2/dispositivos/1-create.png)
 
 !["db"](./imagenes/etapa2/dispositivos/2-db.png)
 
-!["devices"](./imagenes/etapa2/dispositivos/3-devices.png)
+!["all"](./imagenes/etapa2/dispositivos/3-all.png)
 
-!["one-device"](./imagenes/etapa2/dispositivos/4-one-device.png)
+!["connectivity"](./imagenes/etapa2/dispositivos/4-connectivity.png)
 
-!["connectivity"](./imagenes/etapa2/dispositivos/5-connectivity.png)
+!["group"](./imagenes/etapa2/dispositivos/5-group.png)
 
-📝TODO: Proteger rutas de la etapa 3 comprobando que el dispositivo exista.
+!["one"](./imagenes/etapa2/dispositivos/6-one.png)
 
-📝TODO: Crear una ruta para actualizar el grupo.
+📝TODO: Proteger rutas que se utilizan en la etapa3 con Nginx para que no sean accesibles externamente.

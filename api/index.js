@@ -25,9 +25,9 @@ await connectToMongo(mongoUrl)
 app.use(express.json())
 
 // Rutas
-app.use("/users", userRouter)
-app.use("/data", dataRouter)
-app.use("/devices", deviceRouter)
+app.use("/api/v1/", userRouter)
+app.use("/api/v1/", dataRouter)
+app.use("/api/v1/", deviceRouter)
 
 app.use("/", (req, res) => {
     res.status(404).json({ message: "La API está funcionando" })

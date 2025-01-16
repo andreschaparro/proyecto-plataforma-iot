@@ -7,7 +7,7 @@ const userSchema = Schema({
         unique: true
     },
     password: String,
-    rol: String
+    role: String
 })
 
 export const User = model("User", userSchema, "iotUsuarios")

@@ -24,5 +24,5 @@ db.iotUsuarios.insertOne({
     email: "admin@admin.com",
     // El password "admin123" se debe cifrar en https://bcrypt-generator.com/ utilizando 10 rounds
     password: "$2a$10$qa1ZnRuxovoH.NUgOuwKZeC63pZvjilPNHx8hniuvAVKoqShazr32",
-    rol: "admin"
+    role: "admin"
 })

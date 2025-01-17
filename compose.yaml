@@ -1,4 +1,5 @@
 services:
+
   mongo:
     # Última versión compatible con Raspberry Pi 3B+ https://hub.docker.com/_/mongo/
     image: mongo:4.4.18
@@ -12,4 +13,31 @@ services:
       - ./mongo/datadir:/data/db
     ports:
       - 27017:27017
-    command: ["mongod", "--auth", "--bind_ip_all"]
+    command: [ "mongod", "--auth", "--bind_ip_all" ]
+
+  api:
+    image: node:22
+    restart: always
+    environment:
+      # Debe coincidir con lo declarado en ports
+      - PORT=3000
+      # El hostname de los contendores es igual al nombre del servicio
+      - MONGO_HOSTNAME=mongo
+      # Los siguientes valores están en mongo-init.js
+      - MONGO_USERNAME=iotuser
+      - MONGO_PASSWORD=iot123
+      - MONGO_DATABASE=iot
+      # Las siguientes variables de entorno se declaran en el .env
+      - JWT_SECRET=${API_JWT_SECRET}
+      # Los datos de la cuenta de https://ethereal.email/
+      - EMAIL_USER=${API_EMAIL_USER}
+      - EMAIL_PASS=${API_EMAIL_PASS}
+    volumes:
+      # Se monta ./api en el working_dir
+      - ./api:/home/node/app
+    ports:
+      - 3000:3000
+    command: [ "sh", "-c", "npm install && npm start" ]
+    working_dir: /home/node/app
+    depends_on:
+      - mongo

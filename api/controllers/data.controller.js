@@ -127,6 +127,7 @@ export const updateDeviceData = async (req, res) => {
             return res.status(400).json({ message: "El campo ts debe ser un número epoch" })
         }
 
+        // Verifica que values sea un objeto
         if (typeof values !== "object") {
             return res.status(400).json({ message: "El campo values debe ser un objeto" })
         }

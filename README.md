@@ -36,8 +36,6 @@ Prueba con MongoDB Compass:
 
 !["reset-password"](./imagenes/etapa2/usuarios/9-reset-password.png)
 
-📝TODO: Las últimas 3 imágenes no están actualizadas.
-
 ### Gestión de los datos
 
 !["req-params"](./imagenes/etapa2/data/1-req-params.png)
@@ -68,4 +66,8 @@ Prueba con MongoDB Compass:
 
 !["one"](./imagenes/etapa2/dispositivos/6-one.png)
 
-📝TODO: Proteger rutas que se utilizan en la etapa3 con Nginx para que no sean accesibles externamente.
+📝TODO: Gestión de grupos, gestión de acciones, gestión de atributos.
+
+## Etapa 3: Mosquitto con Docker
+
+## Etapa 4: Core

@@ -2,9 +2,8 @@ import jwt from "jsonwebtoken"
 import bcrypt from "bcrypt"
 import nodemailer from "nodemailer"
 import { JWT_SECRET } from "../config/jwt.config.js"
+import { SALT_ROUNDS } from "../config/bcrypt.config.js"
 import { EMAIL_USER, EMAIL_PASS } from "../config/nodemailer.config.js"
-
-const SALT_ROUNDS = 10
 
 // Compara una contraseña en texto plano contra una cifrada
 export const comparePasswords = async (password, hashPassword) => {

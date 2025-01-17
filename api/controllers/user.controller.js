@@ -10,6 +10,7 @@ import {
 export const getUserProfile = (req, res) => {
     // Recupera el email, password y role del usuario que fueron agregados al request por el middleware verifyJwt
     const { name, email, role } = req.user
+
     res.json({ name, email, role })
 }
 

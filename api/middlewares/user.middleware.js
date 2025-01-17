@@ -23,9 +23,9 @@ export const verifyJwt = async (req, res, next) => {
         if (!user) {
             return res.status(404).json({ message: "El usuario no existe" })
         }
-
         req.user = user
 
+        // Continua con el siguiente middleware o controlador
         next()
     } catch (error) {
         // Estos estos errores se producen al verificar el JWT
@@ -51,5 +51,6 @@ export const ensureAdminRole = (req, res, next) => {
         return res.status(403).json({ message: "El role del usuario no es admin" })
     }
 
+    // Continua con el siguiente middleware o controlador
     next()
 }

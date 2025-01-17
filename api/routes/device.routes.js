@@ -6,7 +6,10 @@ import {
     updateDeviceConnectivity,
     updateDeviceGroup
 } from "../controllers/device.controller.js"
-import { verifyJwt, ensureAdminRole } from "../middlewares/user.middleware.js"
+import {
+    verifyJwt,
+    ensureAdminRole
+} from "../middlewares/user.middleware.js"
 
 export const deviceRouter = Router()
 

@@ -1,5 +1,5 @@
 import { Data } from "../models/data.model.js"
-import { DATA_N_SAMPLES } from "../config/database.config.js"
+import { MAX_SAMPLES } from "../config/database.config.js"
 
 // Devuelve los últimos datos de un dispositivo
 export const getLastDeviceData = async (req, res) => {
@@ -142,7 +142,7 @@ export const updateDeviceData = async (req, res) => {
         })
 
         // Verifica que no se haya alcanzado la cantidad máxima de telemetrías que se pueden guardar durante un día
-        if (existingData && existingData.nSamples >= DATA_N_SAMPLES) {
+        if (existingData && existingData.nSamples >= MAX_SAMPLES) {
             return res.status(400).json({ message: "Se superó la cantidad máxima de telemetrías que el device puede guardar hoy" })
         }
 
@@ -152,7 +152,7 @@ export const updateDeviceData = async (req, res) => {
                 day,
                 device: device.trim(),
                 // Verificación adicional de la cantidad máxima de telemetrías que se pueden guardar durante un día
-                nSamples: { $lt: DATA_N_SAMPLES }
+                nSamples: { $lt: MAX_SAMPLES }
             },
             {
                 $push: {

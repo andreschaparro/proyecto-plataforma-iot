@@ -1,6 +1,6 @@
 # Proyecto: Plataforma IoT para una Raspberry Pi 3 B+
 
-## Etapa 1: Mongo con Docker
+## Etapa 1: Mongo funcionando en Docker
 
 Comandos útiles:
 
@@ -14,9 +14,11 @@ Prueba con MongoDB Compass:
 
 !["db"](./imagenes/etapa1/2-db.png)
 
-## Etapa2: API REST para Mongo
+## Etapa2: API REST para Mongo con Node y Express funcionando en Docker
 
 ### Gestión de los usuarios
+
+Prueba con Postman:
 
 !["login"](./imagenes/etapa2/usuarios/1-login.png)
 
@@ -38,6 +40,8 @@ Prueba con MongoDB Compass:
 
 ### Gestión de los datos
 
+Prueba con Postman:
+
 !["req-params"](./imagenes/etapa2/data/1-req-params.png)
 
 !["put"](./imagenes/etapa2/data/2-put.png)
@@ -54,6 +58,8 @@ Prueba con MongoDB Compass:
 
 ### Gestión de los dispositivos
 
+Prueba con Postman:
+
 !["create"](./imagenes/etapa2/dispositivos/1-create.png)
 
 !["db"](./imagenes/etapa2/dispositivos/2-db.png)
@@ -68,6 +74,14 @@ Prueba con MongoDB Compass:
 
 📝TODO: Gestión de grupos, gestión de acciones, gestión de atributos.
 
-## Etapa 3: Mosquitto con Docker
+## Etapa 3: Mosquitto funcionando en Docker
 
-## Etapa 4: Core
+Prueba con mosquitto_sub y mosquitto_pub desde la terminal de Visual Studio Code:
+
+!["pub-sub"](./imagenes/etapa3/1-pub-sub.png)
+
+📝TODO: Agregar TLS.
+
+## Etapa 4: Core con Node y Express funcionando en Docker
+
+### Telemetry Input Management o TIM con Node

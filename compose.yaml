@@ -41,3 +41,11 @@ services:
     working_dir: /home/node/app
     depends_on:
       - mongo
+
+  mosquitto:
+    image: eclipse-mosquitto
+    restart: always
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+    ports:
+      - 1883:1883

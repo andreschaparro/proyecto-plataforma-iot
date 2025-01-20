@@ -82,6 +82,18 @@ Prueba con mosquitto_sub y mosquitto_pub desde la terminal de Visual Studio Code
 
 📝TODO: Agregar TLS.
 
-## Etapa 4: Core con Node y Express funcionando en Docker
+## Etapa 4: Core con MQTT, Node y Express funcionando en Docker
 
-### Telemetry Input Management o TIM con Node
+### Telemetry Input Management o TIM
+
+Prueba con mosquitto_pub desde la terminal de Visual Studio Code:
+
+!["put-telemetry"](./imagenes/etapa4/1-put-telemetry.png)
+
+!["db"](./imagenes/etapa4/2-db.png)
+
+📝TODO: Poder hacer post.
+
+📝TODO: Manejar otras rutas en el TIM.
+
+📝TODO: hacer el modulo RPC.

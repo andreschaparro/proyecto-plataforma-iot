@@ -49,3 +49,26 @@ services:
       - ./mosquitto/config:/mosquitto/config
     ports:
       - 1883:1883
+
+  core:
+    image: node:22
+    restart: always
+    environment:
+      # Debe coincidir con lo declarado en ports
+      - PORT=3001
+      # El hostname de los contendores es igual al nombre del servicio
+      - API_HOSTNAME=api
+      - MQTT_HOSTNAME=mosquitto
+      # Debe coincidir con lo declarado en ports del sevicio api
+      - API_PORT=3000
+    volumes:
+      # Se monta ./core en el working_dir
+      - ./core:/home/node/app
+    ports:
+      - 3001:3001
+    command: [ "sh", "-c", "npm install && npm start" ]
+    working_dir: /home/node/app
+    depends_on:
+      - mongo
+      - api
+      - mosquitto

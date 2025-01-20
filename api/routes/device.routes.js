@@ -25,5 +25,5 @@ deviceRouter.post("/devices", verifyJwt, ensureAdminRole, createDevice)
 // Ruta para actualizar el estado de la conectividad de un dispositivo
 deviceRouter.put("/devices/:name/connectivity", updateDeviceConnectivity)
 
-// Ruta para actualizar el grupo al que pertenece un dispositivo
-deviceRouter.put("/devices/:name/group", updateDeviceGroup)
+// Ruta para que un usuario administrador autenticado actualice el grupo al que pertenece un dispositivo
+deviceRouter.put("/devices/:name/group", verifyJwt, ensureAdminRole, updateDeviceGroup)

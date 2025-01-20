@@ -4,9 +4,8 @@ const {
 
 export const MQTT_URL = `mqtt://${MQTT_HOSTNAME}`
 
+export const TELEMETRY_TOPIC = "devices/telemetry"
+
 export const TOPICS = [
-    'devices/telemetry',
-    'devices/attribute',
-    'devices/command',
-    'devices/action'
+    TELEMETRY_TOPIC
 ]

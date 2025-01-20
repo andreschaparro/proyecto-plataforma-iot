@@ -35,6 +35,6 @@ export const connectToMQTT = (url, topics) => {
         console.log("El core está intentando reconectarse a Mosquitto")
     })
 
-    // Cuando llega un mensaje lo envía al TIM
+    // Cuando llega un mensaje lo envía al TIM o Telemetry Input Management
     client.on("message", timProcess)
 }
